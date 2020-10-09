@@ -1,6 +1,6 @@
-package com.techm.ublog.services;
+package com.upgrad.ublog.services;
 
-import com.techm.ublog.dto.UserDTO;
+import com.upgrad.ublog.dto.UserDTO;
 
 public interface UserService {
     UserDTO saveUser(UserDTO userDTO) throws Exception;

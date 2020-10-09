@@ -1,6 +1,6 @@
-package com.techm.ublog.utils;
+package com.upgrad.ublog.utils;
 
-import com.techm.ublog.exceptions.EmailNotValidException;
+import com.upgrad.ublog.exceptions.EmailNotValidException;
 import java.util.regex.Pattern;
 
 /**

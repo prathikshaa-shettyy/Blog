@@ -1,4 +1,4 @@
-package com.techm.ublog.services;
+package com.upgrad.ublog.services;
 
 /**
  * TODO: 6.22. Implement the PostService interface and implement this class using the Singleton pattern.
@@ -62,8 +62,11 @@ package com.techm.ublog.services;
  */
 
 
-import com.techm.ublog.dto.PostDTO;
+import com.upgrad.ublog.dao.PostDAO;
+import com.upgrad.ublog.dto.PostDTO;
+import com.upgrad.ublog.exceptions.PostNotFoundException;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
@@ -72,6 +75,7 @@ public class PostServiceImpl implements PostService
 {
     private static PostServiceImpl instance;
     private List<PostDTO> post;
+    private PostDAO postDAO;
 
 
     public static PostServiceImpl getInstance() {
@@ -83,26 +87,45 @@ public class PostServiceImpl implements PostService
 
     @Override
     public PostDTO save(PostDTO postDTO) throws Exception {
-        return null;
+        return postDAO.create(postDTO);
     }
 
     @Override
     public List<PostDTO> getPostsByEmail(String emailId) throws Exception {
-        return null;
+        try {
+            return postDAO.findByEmail(emailId);
+        } catch (SQLException e) {
+            throw new Exception("Some unexpected error occurred!");
+        }
     }
 
     @Override
     public List<PostDTO> getPostsByTag(String tag) throws Exception {
-        return null;
+        try {
+            return postDAO.findByTag(tag);
+        } catch (SQLException e) {
+            throw new Exception("Some unexpected error occurred!");
+        }
     }
 
     @Override
     public Set<String> getAllTags() throws Exception {
-        return null;
+        try {
+            return (Set<String>) postDAO.findAllTags();
+        } catch (SQLException e) {
+            throw new Exception("Some unexpected error occurred!");
+        }
     }
+
+
 
     @Override
     public boolean deletePost(int id, String emailId) throws Exception {
-        return false;
+        PostDTO post =  postDAO.findById(id);
+        if(post==null){
+            throw new PostNotFoundException("No Post exist with the given Post Id");
+        }else {
+            return postDAO.deleteById(post.getPostId());
+        }
     }
 }

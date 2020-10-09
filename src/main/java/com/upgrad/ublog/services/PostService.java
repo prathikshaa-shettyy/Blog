@@ -1,6 +1,6 @@
-package com.techm.ublog.services;
+package com.upgrad.ublog.services;
 
-import com.techm.ublog.dto.PostDTO;
+import com.upgrad.ublog.dto.PostDTO;
 
 import java.util.List;
 import java.util.Set;

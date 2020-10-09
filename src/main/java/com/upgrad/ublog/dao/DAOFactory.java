@@ -1,4 +1,4 @@
-package com.techm.ublog.dao;
+package com.upgrad.ublog.dao;
 
 /**
  * TODO: 6.8. Provide a factory method which returns PostDAOImpl object. (Hint: Return type

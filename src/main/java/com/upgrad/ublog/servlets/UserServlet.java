@@ -1,4 +1,4 @@
-package com.techm.ublog.servlets;
+package com.upgrad.ublog.servlets;
 
 /**
  * TODO: 4.5. Modify the class definition to make it a Servlet class (through inheritance) and

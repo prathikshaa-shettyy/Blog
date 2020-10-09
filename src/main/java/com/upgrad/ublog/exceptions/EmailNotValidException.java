@@ -1,4 +1,4 @@
-package com.techm.ublog.exceptions;
+package com.upgrad.ublog.exceptions;
 
 /**
  * TODO: 3.1. Convert this class to a custom Exception class.

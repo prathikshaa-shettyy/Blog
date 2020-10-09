@@ -1,4 +1,4 @@
-package com.techm.ublog.services;
+package com.upgrad.ublog.services;
 
 /**
  * TODO: 6.14. Provide a factory method which returns PostServiceImpl object. (Hint: Return type

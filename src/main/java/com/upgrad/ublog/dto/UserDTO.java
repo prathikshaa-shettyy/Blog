@@ -1,4 +1,4 @@
-package com.techm.ublog.dto;
+package com.upgrad.ublog.dto;
 
 /**
  * TODO: 2.3. Declare 3 private instance variables in this class named as

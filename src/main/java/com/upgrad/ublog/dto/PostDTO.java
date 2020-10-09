@@ -1,4 +1,4 @@
-package com.techm.ublog.dto;
+package com.upgrad.ublog.dto;
 
 import java.time.LocalDateTime;
 
@@ -49,7 +49,7 @@ public class PostDTO {
         this.postId = postId;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

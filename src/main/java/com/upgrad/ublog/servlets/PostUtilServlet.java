@@ -1,9 +1,7 @@
-package com.techm.ublog.servlets;
+package com.upgrad.ublog.servlets;
 
-import com.techm.ublog.services.PostService;
-import com.techm.ublog.services.ServiceFactory;
+import com.upgrad.ublog.services.PostService;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 /**

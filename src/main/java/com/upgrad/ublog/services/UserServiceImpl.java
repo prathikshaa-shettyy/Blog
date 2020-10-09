@@ -1,10 +1,10 @@
-package com.techm.ublog.services;
+package com.upgrad.ublog.services;
 
-import com.techm.ublog.dto.PostDTO;
-import com.techm.ublog.dto.UserDTO;
+import com.upgrad.ublog.dao.DAOFactory;
+import com.upgrad.ublog.dao.UserDAO;
+import com.upgrad.ublog.dto.UserDTO;
 
-import java.util.List;
-import java.util.Set;
+import java.sql.SQLException;
 
 /**
  * TODO: 6.10. Implement the UserService interface and implement this class using the Singleton pattern.
@@ -25,41 +25,38 @@ import java.util.Set;
  *  with a message "Some unexpected error occurred!"
  */
 
-public class UserServiceImpl implements PostService{
-
+public class UserServiceImpl{
         private static UserServiceImpl instance;
-        private List<UserDTO> user;
 
+        private DAOFactory daoFactory;
+        private UserDAO userDAO;
+
+        private UserServiceImpl(){
+            daoFactory = new DAOFactory();
+            userDAO = daoFactory.getUserDAO();
+        }
 
         public static UserServiceImpl getInstance() {
             if (instance == null) {
-                instance = new com.techm.ublog.services.UserServiceImpl();
+                instance = new UserServiceImpl();
             }
             return instance;
         }
 
-    @Override
-    public PostDTO save(PostDTO postDTO) throws Exception {
-        return null;
-    }
+        public UserDAO getUser(String emailId) throws Exception {
+            try {
+                return (UserDAO) userDAO.findByEmail(emailId);
+            } catch (SQLException e) {
+                throw new Exception("Some unexpected error occurred!");
+            }
+        }
 
-    @Override
-    public List<PostDTO> getPostsByEmail(String emailId) throws Exception {
-        return null;
-    }
+        public UserDAO saveUser(UserDTO userDTO) throws Exception {
+            try {
+                return (UserDAO) userDAO.create(userDTO);
+            } catch (SQLException e) {
+                throw new Exception("Some unexpected error occurred!");
+            }
 
-    @Override
-    public List<PostDTO> getPostsByTag(String tag) throws Exception {
-        return null;
-    }
-
-    @Override
-    public Set<String> getAllTags() throws Exception {
-        return null;
-    }
-
-    @Override
-    public boolean deletePost(int id, String emailId) throws Exception {
-        return false;
-    }
+        }
 }

@@ -1,6 +1,6 @@
-package com.techm.ublog.dao;
+package com.upgrad.ublog.dao;
 
-import com.techm.ublog.dto.UserDTO;
+import com.upgrad.ublog.dto.UserDTO;
 
 import java.sql.SQLException;
 
